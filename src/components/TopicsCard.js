@@ -3,16 +3,22 @@ import React, { Component } from 'react';
 class TopicsCard extends Component {
 
   render() {
-    const { id } = this.props.match.params
-    const topic = this.props.topics.find(obj => obj.id === parseInt(id))
+    const { title } = this.props.match.params
+    const topic = this.props.topics.find(obj => obj.title === title)
     // console.log(this.props.match.params)
     return (
       <div>
-        <h1>
           {topic ? (
-            <h1>{topic.title}</h1>
+            <div>
+              <h1>{topic.title}</h1>
+              <p>{topic.description}</p>
+              <ul>
+                {topic.scores.map(score => {
+                  return <li key={score.user}>{score.score} --- {score.user}</li>
+                })}
+              </ul>
+            </div>
           ) : null}
-        </h1>
       </div>
     );
   }

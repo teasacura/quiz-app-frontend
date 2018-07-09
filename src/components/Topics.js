@@ -28,14 +28,14 @@ class Topics extends Component {
   render(){
 
     return (
-      <Switch>
+      <Router>
         <div>
           <Route
-            exact path="/topics/:id"
+            exact path="/topics/:title"
             render={ (props) => <TopicsCard {...props} topics={this.state.topics} /> }/>
            <Route exact path="/topics" render={(props) => <TopicsList {...props} topics={this.state.topics} />}/>
         </div>
-      </Switch>
+      </Router>
     )
   }
 }
