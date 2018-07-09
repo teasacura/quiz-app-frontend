@@ -1,4 +1,7 @@
 import React, { Component } from 'react'
+import { BrowserRouter as Router, Route, Switch } from 'react-router-dom'
+import TopicsList from './TopicsList'
+import TopicsCard from './TopicsCard'
 
 class Topics extends Component {
   state = {
@@ -13,14 +16,26 @@ class Topics extends Component {
         "Accept": "application/json"
       }
     })
-      .then(r => r.json()).then(console.log)
+      .then(r => r.json())
+      .then(res => this.setState({
+        topics: res
+      }, () => console.log(this.state))
+    )
+
   }
 
-  render(){
-    return (
-      <div>
 
-      </div>
+  render(){
+
+    return (
+      <Switch>
+        <div>
+          <Route
+            exact path="/topics/:id"
+            render={ (props) => <TopicsCard {...props} topics={this.state.topics} /> }/>
+           <Route exact path="/topics" render={(props) => <TopicsList {...props} topics={this.state.topics} />}/>
+        </div>
+      </Switch>
     )
   }
 }
