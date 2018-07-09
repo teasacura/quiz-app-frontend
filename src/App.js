@@ -2,8 +2,8 @@ import React, { Component } from 'react';
 import { BrowserRouter as Router, Route, NavLink } from 'react-router-dom'
 import HomePage from './components/HomePage'
 import NavBar from './components/NavBar'
-import Topics from './components/Topics'
-import TopicsCard from './components/TopicsCard'
+// import Topics from './components/Topics'
+import QuizOrTopic from './components/QuizOrTopic'
 import TopicsList from './components/TopicsList'
 import './App.css';
 
@@ -35,10 +35,9 @@ class App extends Component {
           <NavBar />
           <main>
             <Route exact path="/" component={HomePage}/>
-            <Route path="/topics" component={Topics}/>
             <Route
               exact path="/topics/:title"
-              render={ (props) => <TopicsCard {...props} topics={this.state.topics} /> }/>
+              render={ (props) => <QuizOrTopic {...props} topics={this.state.topics} /> }/>
              <Route exact path="/topics" render={(props) => <TopicsList {...props} topics={this.state.topics} />}/>
           </main>
         </div>

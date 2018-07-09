@@ -1,11 +1,10 @@
 import React, { Component } from 'react';
 
 class TopicsCard extends Component {
-
   render() {
     const { title } = this.props.match.params
     const topic = this.props.topics.find(obj => obj.title === title)
-    // console.log(this.props.match.params)
+    console.log(this.props)
     return (
       <div>
           {topic ? (
@@ -17,6 +16,7 @@ class TopicsCard extends Component {
                   return <li key={score.user}>{score.score} --- {score.user}</li>
                 })}
               </ul>
+              <button onClick={this.props.startQuiz}>START QUIZ!</button>
             </div>
           ) : null}
       </div>
