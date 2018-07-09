@@ -4,9 +4,30 @@ import HomePage from './components/HomePage'
 import NavBar from './components/NavBar'
 import Topics from './components/Topics'
 import TopicsCard from './components/TopicsCard'
+import TopicsList from './components/TopicsList'
 import './App.css';
 
 class App extends Component {
+  state = {
+    topics: []
+  }
+
+  componentDidMount(){
+    fetch("http://localhost:3000/topics", {
+      method: "GET",
+      headers: {
+        "Content-Type": "application/json",
+        "Accept": "application/json"
+      }
+    })
+      .then(r => r.json())
+      .then(res => this.setState({
+        topics: res
+      }, () => console.log(this.state))
+    )
+
+  }
+
   render() {
     return (
       <Router>
@@ -15,6 +36,10 @@ class App extends Component {
           <main>
             <Route exact path="/" component={HomePage}/>
             <Route path="/topics" component={Topics}/>
+            <Route
+              exact path="/topics/:title"
+              render={ (props) => <TopicsCard {...props} topics={this.state.topics} /> }/>
+             <Route exact path="/topics" render={(props) => <TopicsList {...props} topics={this.state.topics} />}/>
           </main>
         </div>
       </Router>
