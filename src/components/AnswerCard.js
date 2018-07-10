@@ -11,6 +11,7 @@ class AnswerCard extends React.Component {
     return (
       <div>
       <li
+
         onClick={() => this.props.checkAnswer(this.props.answer)}
         dangerouslySetInnerHTML={{__html: this.props.answer.answer}}
       ></li>
