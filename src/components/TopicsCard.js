@@ -4,7 +4,6 @@ class TopicsCard extends Component {
   render() {
     const { title } = this.props.match.params
     const topic = this.props.topics.find(obj => obj.title === title)
-    console.log(this.props)
     return (
       <div>
           {topic ? (
@@ -13,7 +12,8 @@ class TopicsCard extends Component {
               <p>{topic.description}</p>
               <ul>
                 {topic.scores.map(score => {
-                  return <li key={score.user}>{score.score} --- {score.user}</li>
+                  console.log(score.id)
+                  return <li key={score.id}>{score.score} --- {score.user}</li>
                 })}
               </ul>
               <button onClick={this.props.toggleQuiz}>START QUIZ!</button>

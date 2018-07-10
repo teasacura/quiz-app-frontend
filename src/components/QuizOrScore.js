@@ -3,6 +3,7 @@ import React, { Component } from 'react'
 import QuestionCard from './QuestionCard'
 import ScoreCard from './ScoreCard'
 import Timer from './Timer'
+import SickYeah from './SickYeah'
 
 
 class QuizOrScore extends Component {
@@ -81,9 +82,7 @@ class QuizOrScore extends Component {
       default:
         msg = "fine"
     }
-    this.setState({
-      sickYeah: msg
-    }, () => console.log(this.state.sickYeah))
+    this.setState({sickYeah: msg})
   }
   render(){
     const {quiz, currentQ, time, score} = this.state
@@ -94,6 +93,7 @@ class QuizOrScore extends Component {
           <div>
             <Timer time={time} tick={this.tick}/>
             <QuestionCard quesObj={quiz[currentQ]} checkAnswer={this.checkAnswer} />
+            <SickYeah message={this.state.sickYeah}/>
           </div>
         ) : (
           <ScoreCard
