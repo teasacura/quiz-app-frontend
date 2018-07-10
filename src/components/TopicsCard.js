@@ -16,7 +16,7 @@ class TopicsCard extends Component {
                   return <li key={score.user}>{score.score} --- {score.user}</li>
                 })}
               </ul>
-              <button onClick={this.props.startQuiz}>START QUIZ!</button>
+              <button onClick={this.props.toggleQuiz}>START QUIZ!</button>
             </div>
           ) : null}
       </div>

@@ -9,19 +9,19 @@ class QuizOrTopic extends Component {
     isQuiz: false
   }
 
-  startQuiz = () => {
+  toggleQuiz = () => {
     this.setState({
       isQuiz: !this.state.isQuiz
-    }, () => console.log(this.state))
+    })
   }
 
   render(){
     return (
         <div>
           {this.state.isQuiz ? (
-            <QuizOrScore />
+            <QuizOrScore toggleQuiz={this.toggleQuiz}/>
           ) : (
-            <TopicsCard {...this.props} topics={this.props.topics} startQuiz={this.startQuiz}/>
+            <TopicsCard {...this.props} topics={this.props.topics} toggleQuiz={this.toggleQuiz}/>
           )}
         </div>
     )

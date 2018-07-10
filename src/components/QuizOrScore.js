@@ -27,7 +27,7 @@ class QuizOrScore extends Component {
         { currentQ < 20 ? (
           <QuestionCard quesObj={quiz[currentQ]} nextQ={this.nextQ} />
         ) : (
-          <ScoreCard />
+          <ScoreCard toggleQuiz={this.props.toggleQuiz}/>
         )}
 
       </div>

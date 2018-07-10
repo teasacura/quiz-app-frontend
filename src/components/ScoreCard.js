@@ -5,6 +5,7 @@ class ScoreCard extends React.Component {
     return (
       <div>
         Score!
+        <button onClick={this.props.toggleQuiz}>Back to Topic</button>
       </div>
     )
   }
