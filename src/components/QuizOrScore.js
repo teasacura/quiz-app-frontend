@@ -2,12 +2,15 @@ import React, { Component } from 'react'
 
 import QuestionCard from './QuestionCard'
 import ScoreCard from './ScoreCard'
+import Timer from './Timer'
+
 
 class QuizOrScore extends Component {
 
   state = {
     quiz: [],
-    currentQ: 0
+    currentQ: 0,
+    time: 30
   }
 
   componentDidMount() {
@@ -20,12 +23,16 @@ class QuizOrScore extends Component {
     this.setState((prevState) => ({currentQ: ++prevState.currentQ}))
   }
 
+
   render(){
-    const {quiz, currentQ} = this.state
+    const {quiz, currentQ, time} = this.state
     return(
       <div>
         { currentQ < 20 ? (
-          <QuestionCard quesObj={quiz[currentQ]} nextQ={this.nextQ} />
+          <div>
+            <Timer time={time}/>
+            <QuestionCard quesObj={quiz[currentQ]} nextQ={this.nextQ} />
+          </div>
         ) : (
           <ScoreCard toggleQuiz={this.props.toggleQuiz} restartQuiz={this.props.restartQuiz}/>
         )}
