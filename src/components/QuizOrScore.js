@@ -10,7 +10,8 @@ class QuizOrScore extends Component {
   state = {
     quiz: [],
     currentQ: 0,
-    time: 30
+    time: 60,
+    score: 0
   }
 
   componentDidMount() {
@@ -29,12 +30,18 @@ class QuizOrScore extends Component {
     }, 1000)
     setTimeout(() => {
       clearInterval(this.timerId)
-    }, 30000)
+    }, 60000)
   }
 
   killTime = () => {
     clearInterval(this.timerId)
   }
+  //
+  // isCorrect = (answerChoice) => {
+  //   if (answer) {
+  //     this.setState
+  //   }
+  // }
 
   render(){
     const {quiz, currentQ, time} = this.state
