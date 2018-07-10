@@ -5,8 +5,9 @@ class QuestionCard extends React.Component {
     return this.props.quesObj !== nextProps.quesObj
   }
 
+
   render() {
-    const {quesObj, nextQ} = this.props
+    const {quesObj, checkAnswer} = this.props
     return (
         <div>
           {quesObj ? (
@@ -14,7 +15,7 @@ class QuestionCard extends React.Component {
               <h2 dangerouslySetInnerHTML={{__html: quesObj.question}}></h2>
               <ul>
                 {this.props.quesObj.answers
-                  .map(ans => <AnswerCard answer={ans} nextQ={nextQ}/>)
+                  .map(ans => <AnswerCard answer={ans} checkAnswer={checkAnswer}/>)
                 }
               </ul>
             </div>

@@ -11,17 +11,31 @@ class QuizOrScore extends Component {
     quiz: [],
     currentQ: 0,
     time: 60,
+    answers: [],
     score: 0
   }
 
   componentDidMount() {
     fetch('http://localhost:3000/questions')
       .then(resp => resp.json())
-      .then(resp => this.setState({quiz: resp}))
+      .then(resp => {
+        this.setState({quiz: resp})
+        return resp
+      })
+      .then(console.log)
   }
 
   nextQ = () => {
     this.setState((prevState) => ({currentQ: ++prevState.currentQ}))
+  }
+  checkAnswer = (answer) => {
+    console.log(answer);
+    if (answer.correct) {
+      this.setState(prevState => {
+        return {score: prevState.score + 1}
+      })
+    }
+    this.nextQ()
   }
 
   tick = () => {
@@ -50,7 +64,7 @@ class QuizOrScore extends Component {
         { currentQ < 20 && time > 0 ? (
           <div>
             <Timer time={time} tick={this.tick}/>
-            <QuestionCard quesObj={quiz[currentQ]} nextQ={this.nextQ} />
+            <QuestionCard quesObj={quiz[currentQ]} checkAnswer={this.checkAnswer} />
           </div>
         ) : (
           <ScoreCard

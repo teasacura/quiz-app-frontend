@@ -8,12 +8,14 @@ class AnswerCard extends React.Component {
     }
   }
   render() {
-    console.log(this.state);
     return (
+      <div>
       <li
-        onClick={this.props.nextQ}
+        onClick={() => this.props.checkAnswer(this.props.answer)}
         dangerouslySetInnerHTML={{__html: this.props.answer.answer}}
       ></li>
+      <h1>{this.props.answer.correct.toString()}</h1>
+      </div>
     )
   }
 }
