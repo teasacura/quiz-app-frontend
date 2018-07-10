@@ -1,6 +1,9 @@
 import React from 'react';
 
 class ScoreCard extends React.Component {
+  componentDidMount() {
+    this.props.killTime()
+  }
   render() {
     return (
       <div>

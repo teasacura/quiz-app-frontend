@@ -29,10 +29,12 @@ class QuizOrScore extends Component {
     }, 1000)
     setTimeout(() => {
       clearInterval(this.timerId)
-
     }, 30000)
   }
 
+  killTime = () => {
+    clearInterval(this.timerId)
+  }
 
   render(){
     const {quiz, currentQ, time} = this.state
@@ -44,7 +46,12 @@ class QuizOrScore extends Component {
             <QuestionCard quesObj={quiz[currentQ]} nextQ={this.nextQ} />
           </div>
         ) : (
-          <ScoreCard toggleQuiz={this.props.toggleQuiz} restartQuiz={this.props.restartQuiz}/>
+          <ScoreCard
+            killTime={this.killTime}
+            toggleQuiz={this.props.toggleQuiz}
+            restartQuiz={this.props.restartQuiz}
+          />
+
         )}
 
       </div>
