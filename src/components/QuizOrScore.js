@@ -23,14 +23,24 @@ class QuizOrScore extends Component {
     this.setState((prevState) => ({currentQ: ++prevState.currentQ}))
   }
 
+  tick = () => {
+    this.timerId = setInterval(() => {
+      this.setState(prevState => ({time: --prevState.time}))
+    }, 1000)
+    setTimeout(() => {
+      clearInterval(this.timerId)
+
+    }, 30000)
+  }
+
 
   render(){
     const {quiz, currentQ, time} = this.state
     return(
       <div>
-        { currentQ < 20 ? (
+        { currentQ < 20 && time > 0 ? (
           <div>
-            <Timer time={time}/>
+            <Timer time={time} tick={this.tick}/>
             <QuestionCard quesObj={quiz[currentQ]} nextQ={this.nextQ} />
           </div>
         ) : (
