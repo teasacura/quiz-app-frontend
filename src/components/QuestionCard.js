@@ -14,7 +14,7 @@ class QuestionCard extends React.Component {
               <h2 dangerouslySetInnerHTML={{__html: quesObj.question}}></h2>
               <ul>
                 {this.props.quesObj.answers
-                  .map(ans => <AnswerCard answer={ans} checkAnswer={checkAnswer}/>)
+                  .map(ans => <AnswerCard key={ans.answer} answer={ans} checkAnswer={checkAnswer}/>)
                 }
               </ul>
             </div>
