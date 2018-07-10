@@ -1,6 +1,10 @@
 import React from 'react';
 import AnswerCard from "./AnswerCard"
 class QuestionCard extends React.Component {
+  shouldComponentUpdate(nextProps) {
+    return this.props.quesObj !== nextProps.quesObj
+  }
+
   render() {
     const {quesObj, nextQ} = this.props
     return (

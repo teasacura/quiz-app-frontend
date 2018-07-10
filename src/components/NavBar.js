@@ -12,6 +12,7 @@ const link = {
 
 class NavBar extends Component {
   render(){
+    console.log("hello");
     return (
       <div>
         <NavLink

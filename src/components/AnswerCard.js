@@ -1,9 +1,14 @@
 import React from "react"
 
 class AnswerCard extends React.Component {
-  state = {
+  constructor(props) {
+    super(props)
+    this.state = {
+      correct: props.answer.correct
+    }
   }
   render() {
+    console.log(this.state);
     return (
       <li
         onClick={this.props.nextQ}
