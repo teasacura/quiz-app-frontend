@@ -33,7 +33,7 @@ class QuizOrScore extends Component {
   checkAnswer = (answer) => {
     let bonus = 6 - (this.state.lastAnswer - this.state.time)
     bonus =  (bonus < 0) ? 1 : bonus
-    let score = this.state.score + (bonus * 100)
+    let score = this.state.score + (answer.correct * bonus * 100)
     this.setState({
       score,
       lastAnswer: this.state.time
@@ -56,7 +56,7 @@ class QuizOrScore extends Component {
   }
 
   render(){
-    const {quiz, currentQ, time} = this.state
+    const {quiz, currentQ, time, score} = this.state
     console.log(this.state.score);
     return(
       <div>
@@ -68,6 +68,7 @@ class QuizOrScore extends Component {
         ) : (
           <ScoreCard
             killTime={this.killTime}
+            score={score}
             toggleQuiz={this.props.toggleQuiz}
             restartQuiz={this.props.restartQuiz}
           />

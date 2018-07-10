@@ -7,7 +7,7 @@ class ScoreCard extends React.Component {
   render() {
     return (
       <div>
-        Score!
+        {this.props.score}
         <button onClick={this.props.toggleQuiz}>Back to Topic</button>
         <button onClick={this.props.restartQuiz}>Play Again</button>
       </div>
