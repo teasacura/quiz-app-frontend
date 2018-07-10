@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
 // import { BrowserRouter as Router, Route, Switch } from 'react-router-dom'
-import Quiz from './Quiz'
+import QuizOrScore from './QuizOrScore'
 import TopicsCard from './TopicsCard'
 
 class QuizOrTopic extends Component {
@@ -19,7 +19,7 @@ class QuizOrTopic extends Component {
     return (
         <div>
           {this.state.isQuiz ? (
-            <Quiz />
+            <QuizOrScore />
           ) : (
             <TopicsCard {...this.props} topics={this.props.topics} startQuiz={this.startQuiz}/>
           )}
