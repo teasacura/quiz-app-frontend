@@ -83,7 +83,7 @@ class QuizOrScore extends Component {
     }
     this.setState({
       sickYeah: msg
-    }, console.log(this.state.sickYeah))
+    }, () => console.log(this.state.sickYeah))
   }
   render(){
     const {quiz, currentQ, time, score} = this.state
