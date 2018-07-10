@@ -1,5 +1,7 @@
 import React, { Component } from 'react'
+
 import QuestionCard from './QuestionCard'
+import ScoreCard from './ScoreCard'
 
 class QuizOrScore extends Component {
 
@@ -22,8 +24,12 @@ class QuizOrScore extends Component {
     const {quiz, currentQ} = this.state
     return(
       <div>
-        { }
-        <QuestionCard quesObj={quiz[currentQ]} nextQ={this.nextQ} />
+        { currentQ < 20 ? (
+          <QuestionCard quesObj={quiz[currentQ]} nextQ={this.nextQ} />
+        ) : (
+          <ScoreCard />
+        )}
+
       </div>
     )
   }
