@@ -10,9 +10,9 @@ class QuizOrTopic extends Component {
   }
 
   toggleQuiz = () => {
-    this.setState({
-      isQuiz: !this.state.isQuiz
-    })
+    this.setState((prevState) => ({
+      isQuiz: !prevState.isQuiz
+    }))
   }
 
   render(){

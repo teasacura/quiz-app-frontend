@@ -17,7 +17,7 @@ class QuizOrScore extends Component {
   }
 
   nextQ = () => {
-    this.setState({currentQ: ++this.state.currentQ})
+    this.setState((prevState) => ({currentQ: ++prevState.currentQ}))
   }
 
   render(){
