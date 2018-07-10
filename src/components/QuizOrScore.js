@@ -12,6 +12,7 @@ class QuizOrScore extends Component {
     currentQ: 0,
     time: 60,
     lastAnswer: 60,
+    sickYeah: "ok",
     score: 0
   }
 
@@ -32,8 +33,9 @@ class QuizOrScore extends Component {
 
   checkAnswer = (answer) => {
     let bonus = 6 - (this.state.lastAnswer - this.state.time)
-    bonus =  (bonus < 0) ? 1 : bonus
-    let score = this.state.score + (answer.correct * bonus * 100)
+    bonus =  ((bonus < 0) ? 1 : bonus) * answer.correct
+    this.sickYeahMsg(bonus)
+    let score = this.state.score + (bonus * 100)
     this.setState({
       score,
       lastAnswer: this.state.time
@@ -55,6 +57,34 @@ class QuizOrScore extends Component {
     clearInterval(this.timerId)
   }
 
+  sickYeahMsg = (num) => {
+    let msg;
+    switch(num) {
+      case 6:
+        msg = "6!"
+        break;
+      case 5:
+        msg = "5!"
+        break;
+      case 4:
+        msg = "4!"
+        break;
+      case 3:
+        msg = "3!"
+        break;
+      case 2:
+        msg = "2!"
+        break;
+      case 0:
+        msg = "Wrong!"
+        break;
+      default:
+        msg = "fine"
+    }
+    this.setState({
+      sickYeah: msg
+    }, console.log(this.state.sickYeah))
+  }
   render(){
     const {quiz, currentQ, time, score} = this.state
     console.log(this.state.score);
