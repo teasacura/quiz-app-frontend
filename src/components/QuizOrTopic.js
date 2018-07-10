@@ -14,12 +14,16 @@ class QuizOrTopic extends Component {
       isQuiz: !prevState.isQuiz
     }))
   }
+  restartQuiz = () => {
+    console.log(this.state);
+    this.setState({isQuiz: false}, () => this.setState({isQuiz:true}))
+  }
 
   render(){
     return (
         <div>
           {this.state.isQuiz ? (
-            <QuizOrScore toggleQuiz={this.toggleQuiz}/>
+            <QuizOrScore toggleQuiz={this.toggleQuiz} restartQuiz={this.restartQuiz}/>
           ) : (
             <TopicsCard {...this.props} topics={this.props.topics} toggleQuiz={this.toggleQuiz}/>
           )}
