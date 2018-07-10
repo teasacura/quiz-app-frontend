@@ -8,7 +8,11 @@ class QuestionCard extends React.Component {
           {quesObj ? (
             <div>
               <h2 dangerouslySetInnerHTML={{__html: quesObj.question}}></h2>
-              <AnswerCard quesObj={quesObj} nextQ={nextQ}/>
+              <ul>
+                {this.props.quesObj.answers
+                  .map(ans => <AnswerCard answer={ans} nextQ={nextQ}/>)
+                }
+              </ul>
             </div>
           ) : null}
         </div>
