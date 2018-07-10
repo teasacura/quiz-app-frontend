@@ -5,7 +5,6 @@ class QuestionCard extends React.Component {
     return this.props.quesObj !== nextProps.quesObj
   }
 
-
   render() {
     const {quesObj, checkAnswer} = this.props
     return (

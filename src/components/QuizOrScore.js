@@ -11,7 +11,7 @@ class QuizOrScore extends Component {
     quiz: [],
     currentQ: 0,
     time: 60,
-    answers: [],
+    lastAnswer: 60,
     score: 0
   }
 
@@ -28,13 +28,17 @@ class QuizOrScore extends Component {
   nextQ = () => {
     this.setState((prevState) => ({currentQ: ++prevState.currentQ}))
   }
+
+
   checkAnswer = (answer) => {
-    console.log(answer);
-    if (answer.correct) {
-      this.setState(prevState => {
-        return {score: prevState.score + 1}
-      })
-    }
+    let bonus = 6 - (this.state.lastAnswer - this.state.time)
+    bonus =  (bonus < 0) ? 1 : bonus
+    let score = this.state.score + (bonus * 100)
+    this.setState({
+      score,
+      lastAnswer: this.state.time
+    })
+
     this.nextQ()
   }
 
@@ -50,15 +54,10 @@ class QuizOrScore extends Component {
   killTime = () => {
     clearInterval(this.timerId)
   }
-  //
-  // isCorrect = (answerChoice) => {
-  //   if (answer) {
-  //     this.setState
-  //   }
-  // }
 
   render(){
     const {quiz, currentQ, time} = this.state
+    console.log(this.state.score);
     return(
       <div>
         { currentQ < 20 && time > 0 ? (
