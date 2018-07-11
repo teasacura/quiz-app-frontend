@@ -5,3 +5,18 @@ html {
 main {
   padding-top: 50px;
 }
+
+#slider {
+  height: 200px;
+  width: 50px;
+  position: relative;
+  border: 2px solid black;
+}
+
+#indicator {
+  right: 0;
+  height: 5px;
+  width: 50px;
+  background: black;
+  position: absolute;
+}

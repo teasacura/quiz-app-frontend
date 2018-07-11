@@ -4,6 +4,7 @@ import QuestionCard from './QuestionCard'
 import ScoreCard from './ScoreCard'
 import Timer from './Timer'
 import SickYeah from './SickYeah'
+import ScoreSlider from './ScoreSlider'
 
 
 class QuizOrScore extends Component {
@@ -100,6 +101,7 @@ class QuizOrScore extends Component {
             <Timer time={time} tick={this.tick}/>
             <QuestionCard quesObj={quiz[currentQ]} checkAnswer={this.checkAnswer} />
             <SickYeah message={this.state.sickYeah}/>
+            <ScoreSlider />
           </div>
         ) : (
           <ScoreCard
