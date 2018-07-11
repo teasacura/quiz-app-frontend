@@ -4,40 +4,32 @@ class ScoreSlider extends React.Component {
   constructor(){
     super()
 
-    this.state = {
-      top: 25
-    }
+    this.top = 52.5
   }
 
-  // position(props.score){
-  //   this.setState({
-  //
-  //   })
-  //   props.score / 40
-  // }
+  shouldComponentUpdate(nextProps){
+    return this.props.currentQ !== nextProps.currentQ
+  }
+
+  position(){
+    let topChange = this.props.isLastCorrect ? -2.5 : 2.5
+    this.top += topChange
+    return this.top
+    // this.setState(prevState => ({top: prevState.top + topChange}))
+  }
 
   render() {
-  const styles = {
-    top: `${this.state.top}%`,
-  };
-  return (
-    <div id="slider">
-      <div id="indicator" style={styles}>
+    const styles = {
+      top: `${this.position()}%`,
+    };
+    return (
+      <div id="slider">
+        <div id="indicator" style={styles}>
+        </div>
       </div>
-    </div>
-)
-}
+  )
+  }
 
-//   render(){
-//     return (
-//       <div>
-//         <div>
-//           Indicator
-//         </div>
-//       </div>
-//     )
-//   }
-// }
 }
 
 export default ScoreSlider;

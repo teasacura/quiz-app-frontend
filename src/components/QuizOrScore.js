@@ -14,6 +14,7 @@ class QuizOrScore extends Component {
       quiz: [],
       currentQ: 0,
       time: 60,
+      isLastCorrect: false,
       lastAnswer: 60,
       sickYeah: "ok",
       score: 0
@@ -46,6 +47,7 @@ class QuizOrScore extends Component {
     let score = this.state.score + (bonus * 100)
     this.setState({
       score,
+      isLastCorrect: answer.correct,
       lastAnswer: this.state.time
     })
 
@@ -101,7 +103,7 @@ class QuizOrScore extends Component {
             <Timer time={time} tick={this.tick}/>
             <QuestionCard quesObj={quiz[currentQ]} checkAnswer={this.checkAnswer} />
             <SickYeah message={this.state.sickYeah}/>
-            <ScoreSlider />
+            <ScoreSlider isLastCorrect={this.state.isLastCorrect} currentQ={this.state.currentQ}/>
           </div>
         ) : (
           <ScoreCard
