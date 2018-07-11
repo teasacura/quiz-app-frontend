@@ -27,7 +27,28 @@ class App extends Component {
       .then(res => this.setState({
         topics: res
       }, () => console.log(this.state))
-    )
+    );
+
+    const token = localStorage.getItem('token')
+    if (token) {
+      const options =   {
+        headers: {
+          'Content-Type': 'application/json',
+          'Accept': 'application/json',
+          'Authorization': token
+        }
+      }
+      fetch(`http://localhost:3000/users/${token}`, options)
+      .then(resp => resp.json())
+      .then(user => {
+        this.setState({
+          auth: {
+            currentUser: user
+          }
+        })
+
+      })
+    }
 
   }
 
