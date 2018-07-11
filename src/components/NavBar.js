@@ -41,14 +41,23 @@ class NavBar extends Component {
             background: 'darkblue'
           }}
         >Home</NavLink>
-        <NavLink
-          to="/topics"
-          exact
-          style={link}
-          activeStyle={{
-            background: 'darkblue'
-          }}
-        >{loggedIn ? "Logged In" : "Logged Out"}</NavLink>
+        {loggedIn ? (
+          <div
+            id="logDiv"
+            style={link}
+            onClick={this.props.handleLogout}
+          >Log Out</div>
+        ) : (
+          <NavLink
+            to="/"
+            exact
+            style={link}
+            activeStyle={{
+              background: 'darkblue'
+            }}
+          >Log In</NavLink>
+        )}
+
       </div>
     )
   }

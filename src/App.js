@@ -63,6 +63,7 @@ class App extends Component {
   }
 
    handleLogout = () => {
+     console.log('hello');
      this.setState({
        auth: {
          currentUser: {}
@@ -75,7 +76,7 @@ class App extends Component {
     return (
       <Router>
         <div>
-          <NavBar currentUser={this.state.auth.currentUser} />
+          <NavBar currentUser={this.state.auth.currentUser} handleLogout={this.handleLogout}/>
           <main>
             <Route exact path="/" render={() => <HomePage handleLogin={this.handleLogin}/>}/>
             <Route

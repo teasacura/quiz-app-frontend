@@ -20,3 +20,7 @@ main {
   background: black;
   position: absolute;
 }
+
+#logDiv {
+  float: right;
+}
