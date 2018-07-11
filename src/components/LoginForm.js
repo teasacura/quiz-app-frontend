@@ -27,8 +27,9 @@ class LoginForm extends Component {
     fetch('http://localhost:3000/api/v1/login', options)
     .then(resp => resp.json())
     .then(user => {
-        this.props.onLogin(user)
+        this.props.handleLogin(user)
     })
+
   };
 
   render() {

@@ -9,7 +9,10 @@ import './App.css';
 
 class App extends Component {
   state = {
-    topics: []
+    topics: [],
+    auth: {
+      currentUser: {}
+    }
   }
 
   componentDidMount(){
@@ -28,13 +31,32 @@ class App extends Component {
 
   }
 
+  handleLogin = (user) => {
+   this.setState({
+       auth: {
+         currentUser: user
+       }
+     }, () => {
+       localStorage.setItem('token', user.id)
+     })
+  }
+
+   handleLogout = () => {
+     this.setState({
+       auth: {
+         currentUser: {}
+       }
+     })
+     localStorage.clear()
+   }
+
   render() {
     return (
       <Router>
         <div>
           <NavBar />
           <main>
-            <Route exact path="/" component={HomePage}/>
+            <Route exact path="/" render={() => <HomePage handleLogin={this.handleLogin}/>}/>
             <Route
               exact path="/topics/:title"
               render={ (props) => <QuizOrTopic {...props} topics={this.state.topics} /> }/>
