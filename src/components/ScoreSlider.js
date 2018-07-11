@@ -3,7 +3,6 @@ import React from 'react';
 class ScoreSlider extends React.Component {
   constructor(){
     super()
-
     this.top = 52.5
   }
 
@@ -15,7 +14,6 @@ class ScoreSlider extends React.Component {
     let topChange = this.props.isLastCorrect ? -2.5 : 2.5
     this.top += topChange
     return this.top
-    // this.setState(prevState => ({top: prevState.top + topChange}))
   }
 
   render() {
