@@ -14,6 +14,7 @@ class NavBar extends Component {
 
   render(){
     const loggedIn = !!this.props.currentUser.id
+    const userId = this.props.currentUser.id
     console.log(this.props.currentUser);
     return (
       <div>
@@ -25,14 +26,16 @@ class NavBar extends Component {
             background: 'darkblue'
           }}
         >Go to TOPICS</NavLink>
+        {loggedIn ? (
         <NavLink
-          to="/users"
+          to={`/users/${userId}`}
           exact
           style={link}
           activeStyle={{
             background: 'darkblue'
           }}
         >Go To PROFILE</NavLink>
+        ) : (
         <NavLink
           to="/"
           exact
@@ -40,7 +43,8 @@ class NavBar extends Component {
           activeStyle={{
             background: 'darkblue'
           }}
-        >Home</NavLink>
+        >Home</NavLink>)
+        }
         {loggedIn ? (
           <div
             id="logDiv"

@@ -5,6 +5,7 @@ import NavBar from './components/NavBar'
 // import Topics from './components/Topics'
 import QuizOrTopic from './components/QuizOrTopic'
 import TopicsList from './components/TopicsList'
+import Profile from './components/Profile'
 import './App.css';
 
 class App extends Component {
@@ -52,6 +53,19 @@ class App extends Component {
 
   }
 
+  fetchTopic = (id) => {
+    fetch(`http://localhost:3000/topics/${id}`)
+      .then(r => r.json())
+      .then(topic => {
+        let topics = [...this.state.topics]
+        const oldTopic = topics.find(oldTopic => oldTopic.id === topic.id)
+        console.log(oldTopic)
+        console.log(topic)
+        topics[topics.indexOf(oldTopic)] = topic
+        this.setState({topics}, () => console.log(this.state.topics))
+      })
+  }
+
   handleLogin = (user) => {
    this.setState({
        auth: {
@@ -81,8 +95,9 @@ class App extends Component {
             <Route exact path="/" render={() => <HomePage handleLogin={this.handleLogin}/>}/>
             <Route
               exact path="/topics/:title"
-              render={ (props) => <QuizOrTopic {...props} topics={this.state.topics} /> }/>
+              render={ (props) => <QuizOrTopic {...props} topics={this.state.topics} fetchTopic={this.fetchTopic}/> }/>
              <Route exact path="/topics" render={(props) => <TopicsList {...props} topics={this.state.topics} />}/>
+             <Route exact path="/users/:id" render={(props) => <Profile currentUser={this.state.auth.currentUser} {...props}/>} />
           </main>
         </div>
       </Router>

@@ -26,7 +26,9 @@ class QuizOrTopic extends Component {
             <QuizOrScore {...this.props}
               toggleQuiz={this.toggleQuiz}
               restartQuiz={this.restartQuiz}
-              topics={this.props.topics}/>
+              topics={this.props.topics}
+              fetchTopic={this.props.fetchTopic}
+            />
           ) : (
             <TopicsCard {...this.props} topics={this.props.topics} toggleQuiz={this.toggleQuiz}/>
           )}

@@ -21,8 +21,8 @@ class QuizOrScore extends Component {
     }
 
     const { title } = props.match.params
-    const topic = props.topics.find(obj => obj.title === title)
-    this.url = `http://localhost:3000/topics/${topic.id}/questions`
+    this.topic = props.topics.find(obj => obj.title === title)
+    this.url = `http://localhost:3000/topics/${this.topic.id}/questions`
   }
 
   componentDidMount() {
@@ -109,8 +109,10 @@ class QuizOrScore extends Component {
           <ScoreCard
             killTime={this.killTime}
             score={score}
+            topicId={this.topic.id}
             toggleQuiz={this.props.toggleQuiz}
             restartQuiz={this.props.restartQuiz}
+            fetchTopic={this.props.fetchTopic}
           />
 
         )}
