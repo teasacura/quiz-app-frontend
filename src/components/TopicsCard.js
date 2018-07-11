@@ -12,8 +12,7 @@ class TopicsCard extends Component {
               <p>{topic.description}</p>
               <ul>
                 {topic.scores.map(score => {
-                  console.log(score.id)
-                  return <li key={score.id}>{score.score} --- {score.user}</li>
+                  return <li key={score.id}>{score.score} --- {score.username}</li>
                 })}
               </ul>
               <button onClick={this.props.toggleQuiz}>START QUIZ!</button>
