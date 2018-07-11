@@ -54,7 +54,7 @@ class App extends Component {
     return (
       <Router>
         <div>
-          <NavBar />
+          <NavBar currentUser={this.state.auth.currentUser} />
           <main>
             <Route exact path="/" render={() => <HomePage handleLogin={this.handleLogin}/>}/>
             <Route
