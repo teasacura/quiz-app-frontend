@@ -7,18 +7,24 @@ import SickYeah from './SickYeah'
 
 
 class QuizOrScore extends Component {
+  constructor(props){
+    super(props)
+    this.state = {
+      quiz: [],
+      currentQ: 0,
+      time: 60,
+      lastAnswer: 60,
+      sickYeah: "ok",
+      score: 0
+    }
 
-  state = {
-    quiz: [],
-    currentQ: 0,
-    time: 60,
-    lastAnswer: 60,
-    sickYeah: "ok",
-    score: 0
+    const { title } = props.match.params
+    const topic = props.topics.find(obj => obj.title === title)
+    this.url = `http://localhost:3000/topics/${topic.id}/questions`
   }
 
   componentDidMount() {
-    fetch('http://localhost:3000/questions')
+    fetch(this.url)
       .then(resp => resp.json())
       .then(resp => {
         this.setState({quiz: resp})

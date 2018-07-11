@@ -23,7 +23,10 @@ class QuizOrTopic extends Component {
     return (
         <div>
           {this.state.isQuiz ? (
-            <QuizOrScore toggleQuiz={this.toggleQuiz} restartQuiz={this.restartQuiz}/>
+            <QuizOrScore {...this.props}
+              toggleQuiz={this.toggleQuiz}
+              restartQuiz={this.restartQuiz}
+              topics={this.props.topics}/>
           ) : (
             <TopicsCard {...this.props} topics={this.props.topics} toggleQuiz={this.toggleQuiz}/>
           )}
