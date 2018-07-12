@@ -14,8 +14,8 @@ class NavBar extends Component {
 
   render(){
     const loggedIn = !!this.props.currentUser.id
+    console.log("NavBar", (loggedIn === true));
     const userId = this.props.currentUser.id
-    console.log(this.props.currentUser);
     return (
       <div id="nav">
         <NavLink

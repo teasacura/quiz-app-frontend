@@ -5,11 +5,12 @@ class ScoreCard extends React.Component {
     this.props.killTime()
     const data = {
       score: {
-        user_id: parseInt(localStorage.token, 10),
+        user_id: this.props.currentUser.id,
         topic_id: this.props.topicId,
         score: this.props.score
       }
     }
+
     const options = {
       method: "POST",
       headers: {
