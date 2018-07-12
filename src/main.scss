@@ -156,22 +156,28 @@ main {
   }
 }
 
+%header {
+  font-size: 4rem;
+  text-align: center;
+}
+%basic-card {
+  box-shadow: 1px 1px 10px rgba(0,0,0,.3);
+  z-index: 10;
+  display: block;
+  margin: 1.5rem auto;
+  padding: 1rem;
+  width: 20rem;
+  font-size: 2rem;
+  background: white;
+  text-align: center;
+}
 #topics {
   h2 {
-    font-size: 4rem;
-    text-align: center;
+    @extend %header;
   }
   a {
-    box-shadow: 1px 1px 10px rgba(0,0,0,.3);
-    z-index: 10;
-    display: block;
-    margin: 1.5rem auto;
-    padding: 1rem;
-    width: 20rem;
+    @extend %basic-card;
     color: #5CA6E5;
-    font-size: 2rem;
-    background: white;
-    text-align: center;
     transform: scale(1);
     text-decoration: none;
     transition: all 500ms;
@@ -183,5 +189,32 @@ main {
       color: #FFBA21;
       transform: scale(1.01);
     }
+  }
+}
+
+#topic > div{
+  h2 {
+    @extend %header ;
+    margin-bottom: 0;
+  }
+  p {
+    text-align: center;
+  }
+  ul {
+    @extend %basic-card;
+    color: #5CA6E5;
+    li {
+      list-style-type: none;
+      display: flex;
+      justify-content: space-between;
+      margin: 0 auto;
+      .dots {
+        overflow: hidden;
+      }
+    }
+  }
+  button {
+    @extend %basic-button;
+    font-size: 1.5rem;
   }
 }

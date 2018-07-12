@@ -1,4 +1,4 @@
-#home form button {
+#home form button, #topic > div button {
   background: #4d94ff;
   color: white;
   border: none;
@@ -6,9 +6,9 @@
   margin: .5rem auto;
   display: block;
   transition: background 150ms; }
-  #home form button:hover {
+  #home form button:hover, #topic > div button:hover {
     background: #1D88E3; }
-  #home form button:active {
+  #home form button:active, #topic > div button:active {
     background: #6EB0E8; }
 
 #home form a {
@@ -117,20 +117,23 @@ main {
   #home form button {
     font-size: 1rem; }
 
-#topics h2 {
+#topics h2, #topic > div h2 {
   font-size: 4rem;
   text-align: center; }
-#topics a {
+
+#topics a, #topic > div ul {
   box-shadow: 1px 1px 10px rgba(0, 0, 0, 0.3);
   z-index: 10;
   display: block;
   margin: 1.5rem auto;
   padding: 1rem;
   width: 20rem;
-  color: #5CA6E5;
   font-size: 2rem;
   background: white;
-  text-align: center;
+  text-align: center; }
+
+#topics a {
+  color: #5CA6E5;
   transform: scale(1);
   text-decoration: none;
   transition: all 500ms;
@@ -144,5 +147,21 @@ main {
     box-shadow: 0px 0px 15px rgba(0, 0, 0, 0.4);
     color: #FFBA21;
     transform: scale(1.01); }
+
+#topic > div h2 {
+  margin-bottom: 0; }
+#topic > div p {
+  text-align: center; }
+#topic > div ul {
+  color: #5CA6E5; }
+  #topic > div ul li {
+    list-style-type: none;
+    display: flex;
+    justify-content: space-between;
+    margin: 0 auto; }
+    #topic > div ul li .dots {
+      overflow: hidden; }
+#topic > div button {
+  font-size: 1.5rem; }
 
 /*# sourceMappingURL=App.css.map */
