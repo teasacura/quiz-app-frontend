@@ -2,9 +2,27 @@ import React from 'react'
 import withAuth from '../hocs/withAuth'
 
 class Profile extends React.Component {
-  state = {
-    password: "",
-    msg: ""
+  constructor(){
+    super()
+
+    this.state = {
+      password: "",
+      msg: "",
+      user: {}
+    }
+  }
+
+
+  componentDidMount(){
+    this.fetchUser(this.props.currentUser.id)
+  }
+
+  fetchUser(id){
+    fetch(`http://localhost:3000/users/${id}`)
+      .then(r => r.json())
+      .then(res => this.setState({
+        user: res
+      }))
   }
 
   handleChange = (e) => {
@@ -35,10 +53,10 @@ class Profile extends React.Component {
   }
 
   render(){
-    const {username, scores, id} = this.props.currentUser
+    const {username, scores, id} = this.state.user
     return (
       <div>
-        <h1>{this.props.currentUser.username}</h1>
+        <h1>{username}</h1>
         <ul>{ scores ? (
           scores.map(score => {
           return <li key={score.id}>{score.topic}---{score.score}</li>
