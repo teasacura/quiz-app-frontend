@@ -50,19 +50,6 @@ html, body {
 main {
   padding-top: 50px; }
 
-#slider {
-  height: 200px;
-  width: 50px;
-  position: relative;
-  border: 2px solid black; }
-
-#indicator {
-  right: 0;
-  height: 5px;
-  width: 50px;
-  background: black;
-  position: absolute; }
-
 #nav {
   background: #111;
   display: flex;
@@ -204,5 +191,22 @@ main {
     transform: translate(1px, 2px) rotate(0deg); }
   100% {
     transform: translate(1px, -2px) rotate(-1deg); } }
+#slider {
+  height: 95vh;
+  position: fixed;
+  left: 0;
+  bottom: 0;
+  width: 50px;
+  background: linear-gradient(#85FF28, #89DA59, #FF420E);
+  z-index: -10; }
+  #slider #indicator {
+    width: 0;
+    height: 0;
+    border-top: 10px solid transparent;
+    border-bottom: 10px solid transparent;
+    border-right: 60px solid black;
+    position: absolute;
+    -webkit-transition: top 2s;
+    transition: top 1s; }
 
 /*# sourceMappingURL=App.css.map */
