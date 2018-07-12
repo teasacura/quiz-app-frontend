@@ -1,4 +1,4 @@
-#home form button, #topic > div button {
+#home form button, #topic > div button, #score-card div button {
   background: #4d94ff;
   color: white;
   border: none;
@@ -6,9 +6,9 @@
   margin: .5rem auto;
   display: block;
   transition: background 150ms; }
-  #home form button:hover, #topic > div button:hover {
+  #home form button:hover, #topic > div button:hover, #score-card div button:hover {
     background: #1D88E3; }
-  #home form button:active, #topic > div button:active {
+  #home form button:active, #topic > div button:active, #score-card div button:active {
     background: #6EB0E8; }
 
 #home form a {
@@ -222,5 +222,21 @@ main {
   margin: 0 auto;
   text-align: center;
   z-index: -1; }
+
+#score-card p {
+  text-align: center;
+  font-size: 2rem;
+  margin: .5rem; }
+#score-card h1 {
+  text-align: center;
+  font-size: 8rem;
+  margin: 0;
+  animation: shake 1s ease infinite; }
+#score-card div {
+  display: flex;
+  width: 20rem;
+  margin: 2rem auto; }
+  #score-card div button {
+    font-size: 1.5rem; }
 
 /*# sourceMappingURL=App.css.map */

@@ -283,12 +283,26 @@ main {
    text-align: center;
    z-index: -1;
 }
-    // position: fixed;
-    // bottom: 0;
-    // left: 0;
-    // right: 0;
-    // width: 100%;
-    // max-width: 30rem;
-    // display: block;
-    // margin: 0 auto;
-    // z-index: -1
+
+#score-card {
+  p {
+    text-align: center;
+    font-size: 2rem;
+    margin: .5rem;
+  }
+  h1 {
+  text-align: center;
+  font-size: 8rem;
+  margin: 0;
+  animation: shake 1s ease infinite;
+  }
+  div {
+    display: flex;
+    width: 20rem;
+    margin: 2rem auto;
+    button {
+      @extend %basic-button;
+      font-size: 1.5rem;
+    }
+  }
+}

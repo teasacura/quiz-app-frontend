@@ -26,10 +26,13 @@ class ScoreCard extends React.Component {
 
   render() {
     return (
-      <div>
-        {this.props.score}
-        <button onClick={this.props.toggleQuiz}>Back to Topic</button>
-        <button onClick={this.props.restartQuiz}>Play Again</button>
+      <div id="score-card">
+        <p>You scored:</p>
+        <h1>{this.props.score} points!</h1>
+        <div>
+          <button onClick={this.props.toggleQuiz}>Back to Topic</button>
+          <button onClick={this.props.restartQuiz}>Play Again</button>
+        </div>
       </div>
     )
   }
