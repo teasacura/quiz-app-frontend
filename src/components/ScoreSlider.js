@@ -25,7 +25,7 @@ class ScoreSlider extends React.Component {
         <div id="indicator" style={styles}>
         </div>
       </div>
-  )
+    )
   }
 
 }

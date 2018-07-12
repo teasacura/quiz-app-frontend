@@ -3,7 +3,7 @@ import React from "react"
 const SickYeah = (props) => {
   return (
     <div>
-      <h1>{props.message}</h1>
+      <h1 id="sick-yeah">{props.message}</h1>
     </div>
   )
 }

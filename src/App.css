@@ -209,4 +209,18 @@ main {
     -webkit-transition: top 2s;
     transition: top 1s; }
 
+#sick-yeah {
+  position: fixed;
+  bottom: 0;
+  font-size: 3rem;
+  transform: rotate(20deg);
+  left: 7rem;
+  right: 0;
+  top: 4rem;
+  color: #5CA6E5;
+  display: block;
+  margin: 0 auto;
+  text-align: center;
+  z-index: -1; }
+
 /*# sourceMappingURL=App.css.map */

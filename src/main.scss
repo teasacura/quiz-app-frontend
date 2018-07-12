@@ -269,3 +269,26 @@ main {
   }
 }
 
+#sick-yeah {
+   position: fixed;
+   bottom: 0;
+   font-size: 3rem;
+   transform: rotate(20deg); 
+   left: 7rem;
+   right: 0;
+   top: 4rem;
+   color: #5CA6E5;
+   display: block;
+   margin: 0 auto;
+   text-align: center;
+   z-index: -1;
+}
+    // position: fixed;
+    // bottom: 0;
+    // left: 0;
+    // right: 0;
+    // width: 100%;
+    // max-width: 30rem;
+    // display: block;
+    // margin: 0 auto;
+    // z-index: -1

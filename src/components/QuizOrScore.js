@@ -71,7 +71,7 @@ class QuizOrScore extends Component {
     let msg;
     switch(num) {
       case 6:
-        msg = "You DEFINITELY GUESSED!"
+        msg = "!!!!!!"
         break;
       case 5:
         msg = "UNREAL!"
@@ -83,13 +83,13 @@ class QuizOrScore extends Component {
         msg = "YEAH!"
         break;
       case 2:
-        msg = "COOOOooool!"
+        msg = "Cool!"
         break;
       case 0:
         msg = "Wrong!"
         break;
       default:
-        msg = "Fine"
+        msg = "meh"
     }
     this.setState({sickYeah: msg})
   }
