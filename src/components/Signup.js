@@ -1,4 +1,5 @@
-import React from 'react'
+import React from 'react';
+import { Redirect } from 'react-router-dom'
 
 class Signup extends React.Component {
   state = {
@@ -34,6 +35,7 @@ class Signup extends React.Component {
     const {user} = this.state
     return (
       <div>
+        { this.props.loggedIn ? <Redirect to="/topics" /> : (
         <form onSubmit={this.handleSubmit}>
           <div className="ui field">
             <label>Username: </label>
@@ -56,6 +58,8 @@ class Signup extends React.Component {
             Signup
           </button>
         </form>
+      )
+    }
       </div>
     )
   }
