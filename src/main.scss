@@ -226,12 +226,14 @@ main {
     }
   }
 }
-
-#timer {
-  font-size: 8rem;
-  text-align: center;
-  margin: 0;
-  animation: shake 0.8s linear 20s infinite, shake 0.6s linear 30s infinite, shake 0.4s linear 40s infinite, shake 0.2s linear 50s infinite; 
+#timer-div {
+  overflow: hidden;
+  #timer {
+    font-size: 8rem;
+    text-align: center;
+    margin: 0;
+    animation: shake 0.8s linear 20s infinite, shake 0.6s linear 30s infinite, shake 0.4s linear 40s infinite, shake 0.2s linear 50s infinite; 
+  }
 }
 // name duration timing-function delay iteration-count direction fill-mode play-state;
 
@@ -285,6 +287,7 @@ main {
 }
 
 #score-card {
+  overflow: hidden;
   p {
     text-align: center;
     font-size: 2rem;
