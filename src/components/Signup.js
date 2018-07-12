@@ -34,7 +34,8 @@ class Signup extends React.Component {
   render(){
     const {user} = this.state
     return (
-      <div>
+      <div id="signup">
+        <h1>Sign Up</h1>
         { this.props.loggedIn ? <Redirect to="/topics" /> : (
         <form onSubmit={this.handleSubmit}>
           <div className="ui field">

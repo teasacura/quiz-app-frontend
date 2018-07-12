@@ -1,4 +1,4 @@
-#home form button, #topic > div button, #score-card div button {
+#home form button, #topic > div button, #score-card div button, #profile div button, #signup form button {
   background: #4d94ff;
   color: white;
   border: none;
@@ -6,9 +6,9 @@
   margin: .5rem auto;
   display: block;
   transition: background 150ms; }
-  #home form button:hover, #topic > div button:hover, #score-card div button:hover {
+  #home form button:hover, #topic > div button:hover, #score-card div button:hover, #profile div button:hover, #signup form button:hover {
     background: #1D88E3; }
-  #home form button:active, #topic > div button:active, #score-card div button:active {
+  #home form button:active, #topic > div button:active, #score-card div button:active, #profile div button:active, #signup form button:active {
     background: #6EB0E8; }
 
 #home form a {
@@ -92,7 +92,7 @@ main {
 
 #home img {
   width: 100%;
-  max-width: 370px;
+  max-width: 350px;
   display: block;
   margin: 1rem auto; }
 #home p {
@@ -108,23 +108,34 @@ main {
 #home form {
   margin: 1.1rem auto;
   display: block;
-  width: 13rem;
-  padding: .5rem 1rem;
+  padding: 1rem;
+  max-width: 350px;
   box-shadow: 3px 1px 10px rgba(0, 0, 0, 0.2);
-  background: #fafafa; }
-  #home form label, #home form input {
-    margin: .2rem 0;
-    display: inline-block; }
-  #home form input {
-    float: right; }
+  background: #fafafa;
+  font-size: 1.25rem; }
+  #home form div {
+    display: flex;
+    flex-wrap: wrap;
+    justfiy-content: center; }
+    #home form div label {
+      margin: .5rem auto 0;
+      float: left;
+      display: inline-block; }
+    #home form div input {
+      font-size: 1.25rem;
+      margin: .5rem;
+      float: right; }
   #home form button {
+    font-size: 1.25rem;
+    margin: 1rem auto; }
+  #home form a {
     font-size: 1rem; }
 
-#topics h2, #topic > div h2 {
+#topics h2, #topic > div h2, #signup h1 {
   font-size: 4rem;
   text-align: center; }
 
-#topics a, #topic > div ul, #question-card > div ul li {
+#topics a, #topic > div ul, #question-card > div ul li, #profile, #signup form {
   box-shadow: 1px 1px 10px rgba(0, 0, 0, 0.3);
   z-index: 10;
   display: block;
@@ -162,11 +173,13 @@ main {
     font-size: 1.5rem;
     width: 18rem; }
 
-#timer {
-  font-size: 8rem;
-  text-align: center;
-  margin: 0;
-  animation: shake 0.8s linear 20s infinite, shake 0.6s linear 30s infinite, shake 0.4s linear 40s infinite, shake 0.2s linear 50s infinite; }
+#timer-div {
+  overflow: hidden; }
+  #timer-div #timer {
+    font-size: 8rem;
+    text-align: center;
+    margin: 0;
+    animation: shake 0.8s linear 20s infinite, shake 0.6s linear 30s infinite, shake 0.4s linear 40s infinite, shake 0.2s linear 50s infinite; }
 
 @keyframes shake {
   0% {
@@ -223,20 +236,52 @@ main {
   text-align: center;
   z-index: -1; }
 
-#score-card p {
-  text-align: center;
-  font-size: 2rem;
-  margin: .5rem; }
-#score-card h1 {
-  text-align: center;
-  font-size: 8rem;
-  margin: 0;
-  animation: shake 1s ease infinite; }
-#score-card div {
-  display: flex;
-  width: 20rem;
-  margin: 2rem auto; }
-  #score-card div button {
+#score-card {
+  overflow: hidden; }
+  #score-card p {
+    text-align: center;
+    font-size: 2rem;
+    margin: .5rem; }
+  #score-card h1 {
+    text-align: center;
+    font-size: 8rem;
+    margin: 0;
+    animation: shake 1s ease infinite; }
+  #score-card div {
+    display: flex;
+    width: 20rem;
+    margin: 2rem auto; }
+    #score-card div button {
+      font-size: 1.5rem; }
+
+#profile {
+  max-width: 350px;
+  margin: 1rem auto; }
+  #profile h1 {
+    font-size: 3rem; }
+  #profile h2 {
+    font-size: 2rem;
+    font-weight: 300;
+    margin: 0; }
+  #profile ul {
+    color: #5CA6E5;
+    width: 65%;
+    margin: 1rem auto 1.5rem;
+    padding: 0;
     font-size: 1.5rem; }
+    #profile ul li {
+      list-style-type: none;
+      display: flex;
+      justify-content: space-between;
+      margin: 0 auto; }
+      #profile ul li .dots {
+        overflow: hidden; }
+
+#signup form button {
+  font-size: 1.5rem; }
+#signup form input, #signup form label {
+  font-size: 1.5rem;
+  text-align: center;
+  margin: 1rem auto; }
 
 /*# sourceMappingURL=App.css.map */

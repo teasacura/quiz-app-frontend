@@ -5,7 +5,7 @@ class Timer extends React.Component {
     this.props.tick()
   }
   render() {
-    return <h1 id="timer">{this.props.time}</h1>
+    return <div id="timer-div"><h1 id="timer">{this.props.time}</h1></div>
   }
 }
 
