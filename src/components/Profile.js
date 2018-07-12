@@ -8,7 +8,8 @@ class Profile extends React.Component {
     this.state = {
       password: "",
       msg: "",
-      user: {}
+      user: {},
+      clicked: false,
     }
   }
 
@@ -32,6 +33,7 @@ class Profile extends React.Component {
   }
 
   handleSubmit = (e) => {
+    this.setState({clicked: false})
     e.preventDefault()
     const { id } = this.props.currentUser
 
@@ -52,7 +54,14 @@ class Profile extends React.Component {
       .then(msg => alert(msg.msg))
   }
 
+  handleClick = () => {
+    this.setState({
+      clicked: !this.state.clicked
+    })
+  }
+
   render(){
+    const clicked = this.state.clicked
     const {username, scores, id} = this.state.user
     return (
       <div>
@@ -63,11 +72,14 @@ class Profile extends React.Component {
         })
       ) : ( null )
       }</ul>
-        <form onSubmit={this.handleSubmit}>
-          <label htmlFor="password">New Password</label><br></br>
-          <input onChange={this.handleChange} type="text" name="password"></input><br></br>
-          <button>Update</button>
-        </form>
+
+        { clicked ?
+          <form onSubmit={this.handleSubmit}>
+            <label htmlFor="password">New Password</label><br></br>
+            <input onChange={this.handleChange} type="text" name="password"></input><br></br>
+            <button>Update</button>
+          </form>
+          : <button onClick={this.handleClick}>Edit Password</button>}
       </div>
     )
   }
