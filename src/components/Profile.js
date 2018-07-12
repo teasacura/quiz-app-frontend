@@ -33,8 +33,9 @@ class Profile extends React.Component {
   }
 
   handleSubmit = (e) => {
-    this.setState({clicked: false})
     e.preventDefault()
+    if (this.state.password.lenght > 0) {
+    this.setState({clicked: false})
     const { id } = this.props.currentUser
 
     let data = {
@@ -52,6 +53,9 @@ class Profile extends React.Component {
     fetch(`http://localhost:3000/users/${id}`, options)
       .then(r => r.json())
       .then(msg => alert(msg.msg))
+    } else {
+      alert("Enter a valid password")
+    }
   }
 
   handleClick = () => {
@@ -74,11 +78,14 @@ class Profile extends React.Component {
       }</ul>
 
         { clicked ?
-          <form onSubmit={this.handleSubmit}>
-            <label htmlFor="password">New Password</label><br></br>
-            <input onChange={this.handleChange} type="text" name="password"></input><br></br>
-            <button>Update</button>
-          </form>
+          <div>
+            <button onClick={this.handleClick}>Close Form</button>
+            <form onSubmit={this.handleSubmit}>
+              <label htmlFor="password">New Password</label><br></br>
+              <input onChange={this.handleChange} type="text" name="password"></input><br></br>
+              <button>Update</button>
+            </form>
+          </div>
           : <button onClick={this.handleClick}>Edit Password</button>}
       </div>
     )
