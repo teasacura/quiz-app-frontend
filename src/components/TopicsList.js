@@ -1,5 +1,6 @@
 import React from 'react';
 import {NavLink} from 'react-router-dom'
+import withAuth from '../hocs/withAuth'
 
 const TopicsList = (props) => {
   console.log(props);
@@ -13,8 +14,8 @@ const TopicsList = (props) => {
                 <NavLink to={`/topics/${topic.title}`}>
                   {topic.title}
                 </NavLink>
-              </div> 
-            ) 
+              </div>
+            )
           })
         }
       </div>
@@ -23,4 +24,4 @@ const TopicsList = (props) => {
 
 
 
-export default TopicsList;
+export default withAuth(TopicsList);

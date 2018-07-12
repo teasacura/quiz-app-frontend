@@ -2,6 +2,7 @@ import React, { Component } from 'react'
 // import { BrowserRouter as Router, Route, Switch } from 'react-router-dom'
 import QuizOrScore from './QuizOrScore'
 import TopicsCard from './TopicsCard'
+import withAuth from '../hocs/withAuth'
 
 class QuizOrTopic extends Component {
 
@@ -37,4 +38,4 @@ class QuizOrTopic extends Component {
   }
 }
 
-export default QuizOrTopic;
+export default withAuth(QuizOrTopic);

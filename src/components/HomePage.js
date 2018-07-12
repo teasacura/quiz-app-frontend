@@ -14,7 +14,7 @@ class HomePage extends Component {
         <p>20 Questions.</p>
         <p>60 Seconds.</p>
         <p>You ready?</p>
-        <LoginForm handleLogin={this.props.handleLogin}/>
+        <LoginForm handleLogin={this.props.handleLogin} loggedIn={this.props.loggedIn}/>
       </div>
     );
   }

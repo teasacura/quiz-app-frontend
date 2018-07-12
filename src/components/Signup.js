@@ -1,19 +1,17 @@
-import React, { Component } from 'react';
-import { Link, Redirect } from 'react-router-dom'
+import React from 'react'
 
-class LoginForm extends Component {
-
+class Signup extends React.Component {
   state = {
-    fields: {
-      username: '',
-      password: ''
+    user: {
+      username: "",
+      password: ""
     }
-  };
+  }
 
   handleChange = (e) => {
-    const newFields = { ...this.state.fields, [e.target.name]: e.target.value };
-    this.setState({ fields: newFields });
-  };
+    const newUser = { ...this.state.user, [e.target.name]: e.target.value };
+    this.setState({ user: newUser });
+  }
 
   handleSubmit = (e) => {
     e.preventDefault();
@@ -23,27 +21,25 @@ class LoginForm extends Component {
         'Content-Type': 'application/json',
         'Accept': 'application/json'
       },
-      body: JSON.stringify(this.state.fields)
+      body: JSON.stringify(this.state)
     }
-    fetch('http://localhost:3000/api/v1/login', options)
+    fetch('http://localhost:3000/users', options)
     .then(resp => resp.json())
     .then(user => {
         this.props.handleLogin(user)
     })
+  }
 
-  };
-
-  render() {
-    const { fields } = this.state;
+  render(){
+    const {user} = this.state
     return (
-      <div>  
-        { this.props.loggedIn ? <Redirect to="/topics" /> :
-        (<form onSubmit={this.handleSubmit}>
+      <div>
+        <form onSubmit={this.handleSubmit}>
           <div className="ui field">
             <label>Username: </label>
             <input
               name="username"
-              value={fields.username}
+              value={user.username}
               onChange={this.handleChange}
             />
           </div>
@@ -52,19 +48,17 @@ class LoginForm extends Component {
             <input
               name="password"
               type="password"
-              value={fields.password}
+              value={user.password}
               onChange={this.handleChange}
             />
           </div>
           <button type="submit" className="ui basic green button">
-            Login
+            Signup
           </button>
-          <Link to="/signup" >Need to sign up?</Link>
-        </form>)
-      }
+        </form>
       </div>
-    );
+    )
   }
 }
 
-export default LoginForm;
+export default Signup

@@ -1,4 +1,5 @@
 import React from 'react'
+import withAuth from '../hocs/withAuth'
 
 class Profile extends React.Component {
   render(){
@@ -24,4 +25,4 @@ class Profile extends React.Component {
   }
 }
 
-export default Profile
+export default withAuth(Profile)

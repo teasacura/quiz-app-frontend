@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { BrowserRouter as Router, Route } from 'react-router-dom'
+import { BrowserRouter as Router, Route, Redirect } from 'react-router-dom'
 import HomePage from './components/HomePage'
 import NavBar from './components/NavBar'
 // import Topics from './components/Topics'
@@ -7,6 +7,7 @@ import QuizOrTopic from './components/QuizOrTopic'
 import TopicsList from './components/TopicsList'
 import Profile from './components/Profile'
 import clock from './images/clock.jpg'
+import Signup from './components/Signup'
 import './App.css';
 
 class App extends Component {
@@ -88,17 +89,19 @@ class App extends Component {
    }
 
   render() {
+    const loggedIn = !!this.state.auth.currentUser.id
     return (
       <Router>
         <div>
           <NavBar currentUser={this.state.auth.currentUser} handleLogout={this.handleLogout}/>
 
-          <Route exact path="/" render={() => <HomePage handleLogin={this.handleLogin}/>}/>
+          <Route exact path="/" render={() => <HomePage handleLogin={this.handleLogin} loggedIn={loggedIn}/>}/>
           <Route
             exact path="/topics/:title"
-            render={ (props) => <QuizOrTopic {...props} topics={this.state.topics} fetchTopic={this.fetchTopic}/> }/>
-           <Route exact path="/topics" render={(props) => <TopicsList {...props} topics={this.state.topics} />}/>
-           <Route exact path="/users/:id" render={(props) => <Profile currentUser={this.state.auth.currentUser} {...props}/>} />
+            render={ (props) => <QuizOrTopic {...props} topics={this.state.topics} fetchTopic={this.fetchTopic} loggedIn={loggedIn}/> }/>
+           <Route exact path="/topics" render={(props) => <TopicsList {...props} topics={this.state.topics} loggedIn={loggedIn}/>}/>
+           <Route exact path="/signup" component={(props) => <Signup handleLogin={this.handleLogin} loggedIn={loggedIn}/>}/>
+           <Route exact path="/users/:id" render={(props) => <Profile currentUser={this.state.auth.currentUser} {...props} loggedIn={loggedIn}/>} />
                 <img id="clock" src={clock} />
         </div>
 
