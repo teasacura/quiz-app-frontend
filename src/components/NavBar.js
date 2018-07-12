@@ -17,49 +17,43 @@ class NavBar extends Component {
     const userId = this.props.currentUser.id
     console.log(this.props.currentUser);
     return (
-      <div>
+      <div id="nav">
+        <NavLink
+          to="/"
+          exact
+          className="nav-link"
+        >20 Questions</NavLink>
         <NavLink
           to="/topics"
           exact
-          style={link}
-          activeStyle={{
-            background: 'darkblue'
-          }}
-        >Go to TOPICS</NavLink>
+          className="nav-link"
+        >topics</NavLink>
         {loggedIn ? (
         <NavLink
           to={`/users/${userId}`}
           exact
-          style={link}
-          activeStyle={{
-            background: 'darkblue'
-          }}
-        >Go To PROFILE</NavLink>
+          className="nav-link"
+        >profile</NavLink>
         ) : (
         <NavLink
           to="/"
           exact
-          style={link}
-          activeStyle={{
-            background: 'darkblue'
-          }}
+          className="nav-link"
         >Home</NavLink>)
         }
         {loggedIn ? (
-          <div
-            id="logDiv"
-            style={link}
+          <a
+            id="log-div"
             onClick={this.props.handleLogout}
-          >Log Out</div>
+            className="nav-link"
+          >log out</a>
         ) : (
           <NavLink
             to="/"
+            id="log-div"
             exact
-            style={link}
-            activeStyle={{
-              background: 'darkblue'
-            }}
-          >Log In</NavLink>
+            className="nav-link"
+          >log in</NavLink>
         )}
 
       </div>

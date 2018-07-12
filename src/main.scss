@@ -1,24 +1,29 @@
-html, body {
+html, body{
   height: 100%;
   font-family: Arial;
   padding: 0;
-  margin: 0; }
+  margin: 0;
+}
 
 main {
-  padding-top: 50px; }
+  padding-top: 50px;
+}
 
 #slider {
   height: 200px;
   width: 50px;
   position: relative;
-  border: 2px solid black; }
+  border: 2px solid black;
+}
 
 #indicator {
   right: 0;
   height: 5px;
   width: 50px;
   background: black;
-  position: absolute; }
+  position: absolute;
+}
+
 
 #nav {
   background: #111;
@@ -27,8 +32,8 @@ main {
   align-items: center;
   justify-content: flex-start;
   padding: 0 1rem;
-  margin: 0; }
-  #nav .nav-link {
+  margin: 0;
+  .nav-link {
     text-decoration: none;
     width: 100px;
     padding: 12px;
@@ -37,16 +42,21 @@ main {
     color: white;
     text-align: center;
     width: auto;
-    transition: background 150ms; }
-    #nav .nav-link:link {
-      background: #5CA6E5; }
-    #nav .nav-link:visited {
-      background: #111; }
-    #nav .nav-link:hover {
-      background: #444; }
-    #nav .nav-link:active {
-      background: #555; }
-  #nav #log-div {
-    margin-left: auto; }
-
-/*# sourceMappingURL=App.css.map */
+    transition: background 150ms;
+    &:link {
+      background: #5CA6E5;
+    }
+    &:visited {
+      background: #111;
+    }
+    &:hover {
+      background: #444;
+    }
+    &:active {
+      background: #555;
+    }
+  }
+  #log-div {
+    margin-left: auto;
+  }
+}
