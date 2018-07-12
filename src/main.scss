@@ -112,7 +112,7 @@ main {
 #home {
   img {
     width: 100%;
-    max-width: 370px;
+    max-width: 360px;
     display: block;
     margin: 1rem auto;
   }
@@ -305,4 +305,39 @@ main {
       font-size: 1.5rem;
     }
   }
+}
+
+#profile {
+  @extend %basic-card;
+  width: 95%;
+  max-width: 360px;
+  h1 {
+    font-size: 3rem;
+  }
+  h2 {
+    font-size: 2rem;
+    font-weight: 300;
+    margin: 0;
+  }
+  ul {
+    color: #5CA6E5;
+    width: 60%;
+    margin: 1rem auto 1.5rem;
+    padding: 0;
+    font-size: 1.5rem;
+    li {
+      list-style-type: none;
+      display: flex;
+      justify-content: space-between;
+      margin: 0 auto;
+      .dots {
+        overflow: hidden;
+      }
+    }
+  }
+  div {
+    button {
+      @extend %basic-button;
+    }
+  } 
 }

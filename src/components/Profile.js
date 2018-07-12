@@ -68,25 +68,30 @@ class Profile extends React.Component {
     const clicked = this.state.clicked
     const {username, scores, id} = this.state.user
     return (
-      <div>
+      <div id="profile">
         <h1>{username}</h1>
+        <h2>High Scores</h2>
         <ul>{ scores ? (
           scores.map(score => {
-          return <li key={score.id}>{score.topic}---{score.score}</li>
+          return (<li key={score.id}>
+            <span>{score.topic}</span>
+            <span className="dots">....................................</span>
+            <span>{score.score}</span>
+          </li>)
         })
       ) : ( null )
       }</ul>
 
         { clicked ?
           <div>
-            <button onClick={this.handleClick}>Close Form</button>
+            <button onClick={this.handleClick}>Close</button>
             <form onSubmit={this.handleSubmit}>
               <label htmlFor="password">New Password</label><br></br>
               <input onChange={this.handleChange} type="text" name="password"></input><br></br>
               <button>Update</button>
             </form>
           </div>
-          : <button onClick={this.handleClick}>Edit Password</button>}
+          : <div><button onClick={this.handleClick}>Edit Password</button></div>}
       </div>
     )
   }
