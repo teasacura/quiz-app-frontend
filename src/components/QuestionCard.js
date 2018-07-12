@@ -8,7 +8,7 @@ class QuestionCard extends React.Component {
   render() {
     const {quesObj, checkAnswer} = this.props
     return (
-        <div>
+        <div id="question-card">
           {quesObj ? (
             <div>
               <h2 dangerouslySetInnerHTML={{__html: quesObj.question}}></h2>

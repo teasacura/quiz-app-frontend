@@ -33,7 +33,20 @@
     color: #FFEF33;
   }
 }
-
+%card-animation {
+  color: #5CA6E5;
+  transform: scale(1);
+  text-decoration: none;
+  transition: all 500ms;
+  -moz-animation: fadein 1s; /* Firefox */
+  -webkit-animation: fadein 1s; /* Safari and Chrome */
+  -o-animation: fadein 1s; /* Opera */
+  &:hover {
+    box-shadow: 0px 0px 15px rgba(0,0,0,.4);
+    color: #FFBA21;
+    transform: scale(1.01);
+  }
+}
 
 html, body{
   height: 100%;
@@ -177,18 +190,7 @@ main {
   }
   a {
     @extend %basic-card;
-    color: #5CA6E5;
-    transform: scale(1);
-    text-decoration: none;
-    transition: all 500ms;
-    -moz-animation: fadein 1s; /* Firefox */
-    -webkit-animation: fadein 1s; /* Safari and Chrome */
-    -o-animation: fadein 1s; /* Opera */
-    &:hover {
-      box-shadow: 0px 0px 15px rgba(0,0,0,.4);
-      color: #FFBA21;
-      transform: scale(1.01);
-    }
+    @extend %card-animation;
   }
 }
 
@@ -199,6 +201,7 @@ main {
   }
   p {
     text-align: center;
+    font-size: 1.5rem;
   }
   ul {
     @extend %basic-card;
@@ -216,5 +219,21 @@ main {
   button {
     @extend %basic-button;
     font-size: 1.5rem;
+  }
+}
+
+#question-card > div {
+  h2 {
+    text-align: center;
+  }
+  ul {
+    padding: 0;
+    li {
+      @extend %basic-card;
+      @extend %card-animation;
+      list-style-type: none;
+      font-size: 1.5rem;
+      width: 18rem;
+    }
   }
 }

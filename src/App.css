@@ -25,6 +25,22 @@
   #home form a:active {
     color: #FFEF33; }
 
+#topics a, #question-card > div ul li {
+  color: #5CA6E5;
+  transform: scale(1);
+  text-decoration: none;
+  transition: all 500ms;
+  -moz-animation: fadein 1s;
+  /* Firefox */
+  -webkit-animation: fadein 1s;
+  /* Safari and Chrome */
+  -o-animation: fadein 1s;
+  /* Opera */ }
+  #topics a:hover, #question-card > div ul li:hover {
+    box-shadow: 0px 0px 15px rgba(0, 0, 0, 0.4);
+    color: #FFBA21;
+    transform: scale(1.01); }
+
 html, body {
   height: 100%;
   font-family: 'Roboto Condensed', sans-serif;
@@ -121,7 +137,7 @@ main {
   font-size: 4rem;
   text-align: center; }
 
-#topics a, #topic > div ul {
+#topics a, #topic > div ul, #question-card > div ul li {
   box-shadow: 1px 1px 10px rgba(0, 0, 0, 0.3);
   z-index: 10;
   display: block;
@@ -132,26 +148,11 @@ main {
   background: white;
   text-align: center; }
 
-#topics a {
-  color: #5CA6E5;
-  transform: scale(1);
-  text-decoration: none;
-  transition: all 500ms;
-  -moz-animation: fadein 1s;
-  /* Firefox */
-  -webkit-animation: fadein 1s;
-  /* Safari and Chrome */
-  -o-animation: fadein 1s;
-  /* Opera */ }
-  #topics a:hover {
-    box-shadow: 0px 0px 15px rgba(0, 0, 0, 0.4);
-    color: #FFBA21;
-    transform: scale(1.01); }
-
 #topic > div h2 {
   margin-bottom: 0; }
 #topic > div p {
-  text-align: center; }
+  text-align: center;
+  font-size: 1.5rem; }
 #topic > div ul {
   color: #5CA6E5; }
   #topic > div ul li {
@@ -163,5 +164,14 @@ main {
       overflow: hidden; }
 #topic > div button {
   font-size: 1.5rem; }
+
+#question-card > div h2 {
+  text-align: center; }
+#question-card > div ul {
+  padding: 0; }
+  #question-card > div ul li {
+    list-style-type: none;
+    font-size: 1.5rem;
+    width: 18rem; }
 
 /*# sourceMappingURL=App.css.map */
