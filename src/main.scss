@@ -15,6 +15,25 @@
   }
 }
 
+%basic-link {
+  width: 100%;
+  text-align: center;
+  display: block;
+  transition: color 150ms;
+  &:link {
+    color: #5CA6E5;
+  }
+  &:visited {
+    color: #5CA6E5;
+  }
+  &:hover {
+    color: #FFBA21;
+  }
+  &:active {
+    color: #FFEF33;
+  }
+}
+
 
 html, body{
   height: 100%;
@@ -78,20 +97,6 @@ main {
     margin-right: auto;
   }
 }
-
-
-
-
-
-
-
-#home {
-  img {
-    width: 100%;
-    max-width: 370px;
-    display: block;
-    margin: 1rem auto;
-  }
   #clock {
     position: fixed;
     bottom: 0;
@@ -101,8 +106,16 @@ main {
     max-width: 30rem;
     display: block;
     margin: 0 auto;
-    z-index: -100;
+    z-index: -100000;
   }
+#home {
+  img {
+    width: 100%;
+    max-width: 370px;
+    display: block;
+    margin: 1rem auto;
+  }
+
   p {
     width: 100%;
     text-align: center;
@@ -138,22 +151,37 @@ main {
       font-size: 1rem;
     }
     a {
-      width: 100%;
-      text-align: center;
-      display: block;
-      transition: color 150ms;
-      &:link {
-        color: #5CA6E5;
-      }
-      &:visited {
-        color: #5CA6E5;
-      }
-      &:hover {
-        color: #FFBA21;
-      }
-      &:active {
-        color: #FFEF33;
-      }
+      @extend %basic-link;
+    }
+  }
+}
+
+#topics {
+  h2 {
+    font-size: 4rem;
+    text-align: center;
+  }
+  a {
+    box-shadow: 1px 1px 10px rgba(0,0,0,.3);
+    z-index: 10;
+    display: block;
+    margin: 1.5rem auto;
+    padding: 1rem;
+    width: 20rem;
+    color: #5CA6E5;
+    font-size: 2rem;
+    background: white;
+    text-align: center;
+    transform: scale(1);
+    text-decoration: none;
+    transition: all 500ms;
+    -moz-animation: fadein 1s; /* Firefox */
+    -webkit-animation: fadein 1s; /* Safari and Chrome */
+    -o-animation: fadein 1s; /* Opera */
+    &:hover {
+      box-shadow: 0px 0px 15px rgba(0,0,0,.4);
+      color: #FFBA21;
+      transform: scale(1.01);
     }
   }
 }

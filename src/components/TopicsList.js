@@ -4,8 +4,19 @@ import {NavLink} from 'react-router-dom'
 const TopicsList = (props) => {
   console.log(props);
     return (
-      <div>
-        {props.topics.map(topic => <div key={topic.id}><NavLink to={`/topics/${topic.title}`}>{topic.title}</NavLink></div> )}
+      <div id="topics">
+        <h2>Quiz Topics</h2>
+        {props.topics
+          .map(topic => {
+            return (
+              <div key={topic.id}>
+                <NavLink to={`/topics/${topic.title}`}>
+                  {topic.title}
+                </NavLink>
+              </div> 
+            ) 
+          })
+        }
       </div>
     )
 }

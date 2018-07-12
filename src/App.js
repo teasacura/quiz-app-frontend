@@ -6,6 +6,7 @@ import NavBar from './components/NavBar'
 import QuizOrTopic from './components/QuizOrTopic'
 import TopicsList from './components/TopicsList'
 import Profile from './components/Profile'
+import clock from './images/clock.jpg'
 import './App.css';
 
 class App extends Component {
@@ -91,13 +92,16 @@ class App extends Component {
       <Router>
         <div>
           <NavBar currentUser={this.state.auth.currentUser} handleLogout={this.handleLogout}/>
+
           <Route exact path="/" render={() => <HomePage handleLogin={this.handleLogin}/>}/>
           <Route
             exact path="/topics/:title"
             render={ (props) => <QuizOrTopic {...props} topics={this.state.topics} fetchTopic={this.fetchTopic}/> }/>
            <Route exact path="/topics" render={(props) => <TopicsList {...props} topics={this.state.topics} />}/>
            <Route exact path="/users/:id" render={(props) => <Profile currentUser={this.state.auth.currentUser} {...props}/>} />
+                <img id="clock" src={clock} />
         </div>
+
       </Router>
     );
   }

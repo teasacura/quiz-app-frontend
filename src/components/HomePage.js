@@ -15,7 +15,6 @@ class HomePage extends Component {
         <p>60 Seconds.</p>
         <p>You ready?</p>
         <LoginForm handleLogin={this.props.handleLogin}/>
-        <img id="clock" src={clock} />
       </div>
     );
   }
