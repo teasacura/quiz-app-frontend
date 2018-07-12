@@ -22,6 +22,7 @@ class NavBar extends Component {
           to="/"
           exact
           className="nav-link"
+          id="site-name"
         >20 Questions</NavLink>
         <NavLink
           to="/topics"
@@ -34,13 +35,8 @@ class NavBar extends Component {
           exact
           className="nav-link"
         >profile</NavLink>
-        ) : (
-        <NavLink
-          to="/"
-          exact
-          className="nav-link"
-        >Home</NavLink>)
-        }
+        ) : null}
+
         {loggedIn ? (
           <a
             id="log-div"
@@ -62,3 +58,9 @@ class NavBar extends Component {
 }
 
 export default NavBar;
+
+         // <NavLink
+          // to="/"
+          // exact
+          // className="nav-link"
+        // >Home</NavLink>}

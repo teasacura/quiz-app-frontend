@@ -25,7 +25,7 @@ main {
   display: flex;
   flex-wrap: wrap;
   align-items: center;
-  justify-content: flex-start;
+  justify-content: flex-end;
   padding: 0 1rem;
   margin: 0; }
   #nav .nav-link {
@@ -46,7 +46,7 @@ main {
       background: #444; }
     #nav .nav-link:active {
       background: #555; }
-  #nav #log-div {
-    margin-left: auto; }
+  #nav #site-name {
+    margin-right: auto; }
 
 /*# sourceMappingURL=App.css.map */
