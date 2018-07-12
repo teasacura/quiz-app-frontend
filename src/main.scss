@@ -1,6 +1,24 @@
+
+%basic-button {
+  background: #4d94ff;
+  color: white;
+  border: none;
+  padding: .3rem .7rem;
+  margin: .5rem auto;
+  display: block;
+  transition: background 150ms;
+  &:hover {
+    background: #1D88E3;
+  }
+  &:active {
+    background: #6EB0E8;
+  }
+}
+
+
 html, body{
   height: 100%;
-  font-family: Arial;
+  font-family: 'Roboto Condensed', sans-serif;
   padding: 0;
   margin: 0;
 }
@@ -58,5 +76,84 @@ main {
   }
   #site-name {
     margin-right: auto;
+  }
+}
+
+
+
+
+
+
+
+#home {
+  img {
+    width: 100%;
+    max-width: 370px;
+    display: block;
+    margin: 1rem auto;
+  }
+  #clock {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    width: 100%;
+    max-width: 30rem;
+    display: block;
+    margin: 0 auto;
+    z-index: -100;
+  }
+  p {
+    width: 100%;
+    text-align: center;
+    margin: 0 auto;
+    font-size: 2rem;
+    font-weight: 300;
+  }
+
+  hr {
+    width: 80%;
+    max-width: 20rem;
+    margin: -1rem auto 0;
+
+  }
+
+  form {
+    margin: 1.1rem auto;
+    display: block;
+    width: 13rem;
+    padding: .5rem 1rem;
+    box-shadow: 3px 1px 10px rgba(0,0,0,.2);
+    background: rgb(250,250,250);
+    label {
+      margin: .2rem 0;
+      display: inline-block;
+    }
+    input {
+      float: right;
+      @extend label
+    }
+    button {  
+      @extend %basic-button;
+      font-size: 1rem;
+    }
+    a {
+      width: 100%;
+      text-align: center;
+      display: block;
+      transition: color 150ms;
+      &:link {
+        color: #5CA6E5;
+      }
+      &:visited {
+        color: #5CA6E5;
+      }
+      &:hover {
+        color: #FFBA21;
+      }
+      &:active {
+        color: #FFEF33;
+      }
+    }
   }
 }

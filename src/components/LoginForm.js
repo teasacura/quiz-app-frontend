@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import { Link } from 'react-router-dom'
 
 class LoginForm extends Component {
 
@@ -35,34 +36,29 @@ class LoginForm extends Component {
   render() {
     const { fields } = this.state;
     return (
-      <div id='content'>
-        <div className="ui form">
-          <form onSubmit={this.handleSubmit}>
-            <div className="ui field">
-              <label>Username</label>
-              <input
-                name="username"
-                placeholder="username"
-                value={fields.username}
-                onChange={this.handleChange}
-              />
-            </div>
-            <div className="ui field">
-              <label>Password</label>
-              <input
-                name="password"
-                type="password"
-                placeholder="password"
-                value={fields.password}
-                onChange={this.handleChange}
-              />
-            </div>
-            <button type="submit" className="ui basic green button">
-              Login
-            </button>
-          </form>
+      <form onSubmit={this.handleSubmit}>
+        <div className="ui field">
+          <label>Username: </label>
+          <input
+            name="username"
+            value={fields.username}
+            onChange={this.handleChange}
+          />
         </div>
-      </div>
+        <div className="ui field">
+          <label>Password: </label>
+          <input
+            name="password"
+            type="password"
+            value={fields.password}
+            onChange={this.handleChange}
+          />
+        </div>
+        <button type="submit" className="ui basic green button">
+          Login
+        </button>
+        <Link to="#" >Need to sign up?</Link>
+      </form>
     );
   }
 }

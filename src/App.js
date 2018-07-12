@@ -91,14 +91,12 @@ class App extends Component {
       <Router>
         <div>
           <NavBar currentUser={this.state.auth.currentUser} handleLogout={this.handleLogout}/>
-          <main>
-            <Route exact path="/" render={() => <HomePage handleLogin={this.handleLogin}/>}/>
-            <Route
-              exact path="/topics/:title"
-              render={ (props) => <QuizOrTopic {...props} topics={this.state.topics} fetchTopic={this.fetchTopic}/> }/>
-             <Route exact path="/topics" render={(props) => <TopicsList {...props} topics={this.state.topics} />}/>
-             <Route exact path="/users/:id" render={(props) => <Profile currentUser={this.state.auth.currentUser} {...props}/>} />
-          </main>
+          <Route exact path="/" render={() => <HomePage handleLogin={this.handleLogin}/>}/>
+          <Route
+            exact path="/topics/:title"
+            render={ (props) => <QuizOrTopic {...props} topics={this.state.topics} fetchTopic={this.fetchTopic}/> }/>
+           <Route exact path="/topics" render={(props) => <TopicsList {...props} topics={this.state.topics} />}/>
+           <Route exact path="/users/:id" render={(props) => <Profile currentUser={this.state.auth.currentUser} {...props}/>} />
         </div>
       </Router>
     );
@@ -106,3 +104,4 @@ class App extends Component {
 }
 
 export default App;
+// I took out main here
