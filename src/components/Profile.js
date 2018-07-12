@@ -34,7 +34,7 @@ class Profile extends React.Component {
 
   handleSubmit = (e) => {
     e.preventDefault()
-    if (this.state.password.lenght > 0) {
+    if (this.state.password.length > 0) {
     this.setState({clicked: false})
     const { id } = this.props.currentUser
 
