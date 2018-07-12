@@ -68,8 +68,6 @@ main {
     text-align: center;
     width: auto;
     transition: background 150ms; }
-    #nav .nav-link:link {
-      background: #5CA6E5; }
     #nav .nav-link:visited {
       background: #111; }
     #nav .nav-link:hover {

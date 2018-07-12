@@ -81,9 +81,6 @@ main {
     text-align: center;
     width: auto;
     transition: background 150ms;
-    &:link {
-      background: #5CA6E5;
-    }
     &:visited {
       background: #111;
     }
