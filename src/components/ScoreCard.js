@@ -20,7 +20,7 @@ class ScoreCard extends React.Component {
       body: JSON.stringify(data)
     }
 
-    fetch('http://localhost:3000/scores', options)
+    fetch('https://quiz-app-etm.herokuapp.com/scores', options)
       .then(r => r.json())
       .then(r => this.props.fetchTopic(this.props.topicId))
   }

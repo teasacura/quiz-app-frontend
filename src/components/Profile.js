@@ -19,7 +19,7 @@ class Profile extends React.Component {
   }
 
   fetchUser(id){
-    fetch(`http://localhost:3000/users/${id}`)
+    fetch(`https://quiz-app-etm.herokuapp.com/users/${id}`)
       .then(r => r.json())
       .then(res => this.setState({
         user: res
@@ -50,7 +50,7 @@ class Profile extends React.Component {
       },
       body: JSON.stringify(data)
     }
-    fetch(`http://localhost:3000/users/${id}`, options)
+    fetch(`https://quiz-app-etm.herokuapp.com/users/${id}`, options)
       .then(r => r.json())
       .then(msg => alert(msg.msg))
     } else {

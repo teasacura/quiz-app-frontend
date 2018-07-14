@@ -19,7 +19,7 @@ class App extends Component {
   }
 
   componentDidMount(){
-    fetch("http://localhost:3000/topics", {
+    fetch("https://quiz-app-etm.herokuapp.com/topics", {
       method: "GET",
       headers: {
         "Content-Type": "application/json",
@@ -41,7 +41,7 @@ class App extends Component {
           'Authorization': token
         }
       }
-      fetch(`http://localhost:3000/api/v1/reauth`, options)
+      fetch(`https://quiz-app-etm.herokuapp.com/api/v1/reauth`, options)
       .then(resp => resp.json())
       .then(user => {
         this.setState({
@@ -57,7 +57,7 @@ class App extends Component {
   }
 
   fetchTopic = (id) => {
-    fetch(`http://localhost:3000/topics/${id}`)
+    fetch(`https://quiz-app-etm.herokuapp.com/topics/${id}`)
       .then(r => r.json())
       .then(topic => {
         let topics = [...this.state.topics]

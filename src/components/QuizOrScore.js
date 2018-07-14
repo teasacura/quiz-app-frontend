@@ -22,7 +22,7 @@ class QuizOrScore extends Component {
 
     const { title } = props.match.params
     this.topic = props.topics.find(obj => obj.title === title)
-    this.url = `http://localhost:3000/topics/${this.topic.id}/questions`
+    this.url = `https://quiz-app-etm.herokuapp.com/topics/${this.topic.id}/questions`
   }
 
   componentDidMount() {

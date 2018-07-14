@@ -24,7 +24,7 @@ class Signup extends React.Component {
       },
       body: JSON.stringify(this.state)
     }
-    fetch('http://localhost:3000/users', options)
+    fetch('https://quiz-app-etm.herokuapp.com/users', options)
     .then(resp => resp.json())
     .then(user => {
         this.props.handleLogin(user)
