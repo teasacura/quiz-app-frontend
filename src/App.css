@@ -295,4 +295,14 @@ main {
   text-align: center;
   margin: 1rem auto; }
 
+@media screen and (max-width: 800px) {
+  #sick-yeah {
+    display: none; }
+
+  #slider {
+    display: none; }
+
+  #question-card div ul li {
+    margin: .25rem; } }
+
 /*# sourceMappingURL=App.css.map */
