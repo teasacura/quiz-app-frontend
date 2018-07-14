@@ -113,6 +113,7 @@ class QuizOrScore extends Component {
             toggleQuiz={this.props.toggleQuiz}
             restartQuiz={this.props.restartQuiz}
             fetchTopic={this.props.fetchTopic}
+            currentUser={this.props.currentUser}
           />
 
         )}

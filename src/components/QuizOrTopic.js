@@ -29,6 +29,7 @@ class QuizOrTopic extends Component {
               restartQuiz={this.restartQuiz}
               topics={this.props.topics}
               fetchTopic={this.props.fetchTopic}
+              currentUser={this.props.currentUser}
             />
           ) : (
             <TopicsCard {...this.props} topics={this.props.topics} toggleQuiz={this.toggleQuiz}/>

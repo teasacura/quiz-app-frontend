@@ -41,7 +41,7 @@ class App extends Component {
           'Authorization': token
         }
       }
-      fetch(`http://localhost:3000/users/${token}`, options)
+      fetch(`http://localhost:3000/api/v1/reauth`, options)
       .then(resp => resp.json())
       .then(user => {
         this.setState({
@@ -50,7 +50,8 @@ class App extends Component {
           }
         })
 
-      })
+      }
+    )
     }
 
   }
@@ -74,8 +75,9 @@ class App extends Component {
          currentUser: user
        }
      }, () => {
-       localStorage.setItem('token', user.id)
+       localStorage.setItem('token', user.jwt)
      })
+
   }
 
    handleLogout = () => {
@@ -90,6 +92,7 @@ class App extends Component {
 
   render() {
     const loggedIn = !!this.state.auth.currentUser.id
+    console.log("App", (loggedIn === true));
     return (
       <Router>
         <div>
@@ -98,7 +101,13 @@ class App extends Component {
           <Route exact path="/" render={() => <HomePage handleLogin={this.handleLogin} loggedIn={loggedIn}/>}/>
           <Route
             exact path="/topics/:title"
-            render={ (props) => <QuizOrTopic {...props} topics={this.state.topics} fetchTopic={this.fetchTopic} loggedIn={loggedIn}/> }/>
+            render={ (props) =>
+              <QuizOrTopic {...props}
+                topics={this.state.topics}
+                fetchTopic={this.fetchTopic}
+                loggedIn={loggedIn}
+                currentUser={this.state.auth.currentUser}
+              /> }/>
            <Route exact path="/topics" render={(props) => <TopicsList {...props} topics={this.state.topics} loggedIn={loggedIn}/>}/>
            <Route exact path="/signup" component={(props) => <Signup handleLogin={this.handleLogin} loggedIn={loggedIn}/>}/>
            <Route exact path="/users/:id" render={(props) => <Profile currentUser={this.state.auth.currentUser} {...props} loggedIn={loggedIn}/>} />
