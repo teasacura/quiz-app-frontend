@@ -131,7 +131,8 @@ main {
 
 #topics h2, #topic > div h2, #signup h1 {
   font-size: 4rem;
-  text-align: center; }
+  text-align: center;
+  width: 100%; }
 
 #topics a, #topic > div ul, #question-card > div ul li, #profile, #signup form {
   box-shadow: 1px 1px 10px rgba(0, 0, 0, 0.3);
@@ -143,6 +144,14 @@ main {
   font-size: 2rem;
   background: white;
   text-align: center; }
+
+#topics, #question-card > div ul {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center; }
+
+#topics a {
+  margin: 1rem 1rem .5rem; }
 
 #topic > div h2 {
   margin-bottom: 0; }
@@ -165,11 +174,15 @@ main {
   text-align: center;
   margin-top: 0; }
 #question-card > div ul {
-  padding: 0; }
+  padding: 0;
+  max: 100%;
+  max-width: 44rem;
+  margin: 1rem auto; }
   #question-card > div ul li {
     list-style-type: none;
     font-size: 1.5rem;
-    width: 18rem; }
+    width: 18rem;
+    margin: .75rem; }
 
 #timer-div {
   overflow: hidden; }

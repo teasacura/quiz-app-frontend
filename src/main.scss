@@ -167,6 +167,7 @@ main {
 %header {
   font-size: 4rem;
   text-align: center;
+  width: 100%;
 }
 %basic-card {
   box-shadow: 1px 1px 10px rgba(0,0,0,.3);
@@ -179,12 +180,19 @@ main {
   background: white;
   text-align: center;
 }
+%basic-flex {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+}
 #topics {
+    @extend %basic-flex;
   h2 {
     @extend %header;
   }
   a {
     @extend %basic-card;
+    margin: 1rem 1rem .5rem;
     @extend %card-animation;
   }
 }
@@ -224,12 +232,17 @@ main {
   }
   ul {
     padding: 0;
+    @extend %basic-flex;
+    max: 100%;
+    max-width: 44rem;
+    margin: 1rem auto;
     li {
       @extend %basic-card;
       @extend %card-animation;
       list-style-type: none;
       font-size: 1.5rem;
       width: 18rem;
+      margin: .75rem;
     }
   }
 }
